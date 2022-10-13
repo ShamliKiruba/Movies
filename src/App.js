@@ -15,12 +15,14 @@ import { isMobile } from './common/helper';
 import { Typography } from '@mui/material';
 
 const App = () => {
-	const [data, setData] = useState(SAMPLE_DATA.results);
+	const [data, setData] = useState([]);
 	const [dataSelectedIndex, setDataSelectedIndex] = useState();
 
 	useEffect(() => {
+		console.log("Inside use effect ")
 		fetchData('https://swapi.dev/api/films/?format=json')
 		.then((data) => {
+			console.log("Data is ", data)
 			setData(data.results);
 		});
 	}, []);
