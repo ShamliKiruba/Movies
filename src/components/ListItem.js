@@ -5,7 +5,7 @@ import { isMobile } from '../common/helper';
 const ListItem = ({ data = [], selectedIndex, index, fillData}) => {
     return (
         <Box 
-            className='list-container'
+            className={`list-container ${selectedIndex ? 'selectedIndex' : ''}`}
             key={index} 
             onClick={() => fillData(index)}
             sx={{

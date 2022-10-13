@@ -2,8 +2,9 @@ import * as React from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 
 const AccordionComponent = ({ title='heyy', desc='hello', expand = false }) => {
     return (
@@ -14,12 +15,12 @@ const AccordionComponent = ({ title='heyy', desc='hello', expand = false }) => {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography>{title}</Typography>
+              <Box>{title}</Box>
             </AccordionSummary>
             <AccordionDetails>
-                <Typography>
+                <Box>
                   {desc}
-                </Typography>
+                </Box>
             </AccordionDetails>
           </Accordion>
         </>

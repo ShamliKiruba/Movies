@@ -5,8 +5,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-const BasicSelect = ({ handleChange }) => {
-	const [value, setValue] = useState('created');
+const Sort = ({ handleChange }) => {
+	const [value, setValue] = useState('');
 
 	const onChange = (e) => {
 		setValue(e.target.value);
@@ -16,12 +16,14 @@ const BasicSelect = ({ handleChange }) => {
 	return (
 		<Box>
 			<FormControl fullWidth>
-				<InputLabel id="demo-simple-select-label">Sort By</InputLabel>
+				<InputLabel id="simple-sort-label">Sort By</InputLabel>
 				<Select
-					labelId="demo-simple-select-label"
-					id="demo-simple-select"
+					labelId="simple-sort-label"
+					id="simple-sort-id"
+					data-testid="simple-sort"
+					role="sort"
 					value={value}
-					label="Sort By:"
+					label="Sort By"
 					onChange={onChange}
 				>
 					<MenuItem value={'created'}>Date</MenuItem>
@@ -32,4 +34,4 @@ const BasicSelect = ({ handleChange }) => {
 	);
 }
 
-export default BasicSelect;
+export default Sort;

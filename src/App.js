@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchData } from './common/API';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import ComboBox from './components/AutoComplete';
+import Search from './components/Search';
 import Sort from './components/Sort';
 import Detail from './components/Detail';
 import ListItem from './components/ListItem';
@@ -21,22 +21,28 @@ const App = () => {
 	useEffect(() => {
 		fetchData('https://swapi.dev/api/films/?format=json')
 		.then((data) => {
-			console.log(data.results);
 			setData(data.results);
 		});
 	}, []);
-
 
 	const fillDetailedViewData = (index) => {
 		setDataSelectedIndex(index);
 	};
 
-	const searchedTitle = (title) => {
-		data.map((item, index) => {
-			if (item.title == title) {
-				setDataSelectedIndex(index);
-			}
-		})
+	const getDataFromSearch = (title) => {
+		console.log('heyy', title)
+		let newData = [];
+		if(title) {
+			data.map((item, index) => {
+				if (item.title.toLowerCase().includes(title.toLowerCase())) {
+					newData.push(item);
+				}
+			});
+		} else {
+			newData = JSON.parse(JSON.stringify(SAMPLE_DATA.results));
+		}
+		setData(newData);
+		setDataSelectedIndex(0);
 	};
 
 	const handleSort = (sortBy) => {
@@ -47,17 +53,16 @@ const App = () => {
 	return (
 		<ThemeProvider theme={theme}>
 			<Box className='header-title'>
-				<Typography variant='title'>Movies</Typography>
+				<Typography variant='title'>Movie Blog</Typography>
 			</Box>
 			<Box>
 				<Grid container spacing={1} variant="header">
 					<Grid item xs={4} md={2}>
 						<Sort handleChange={handleSort} />
 					</Grid>
-					<Grid item xs={8} md={10}>
-						<ComboBox 
-							data={data.map(item => item.title )} 
-							getDataFromSearch={searchedTitle} />
+					<Grid className="autocomplete-component" item xs={8} md={10}>
+						<Search 
+							getDataFromSearch={getDataFromSearch} />
 					</Grid>
 				</Grid>
 			</Box>
@@ -68,7 +73,7 @@ const App = () => {
 							{
 								data.map((item, index) => {
 									return (
-										<AccordionComponent
+										<AccordionComponent key={index}
 											expand={dataSelectedIndex === index}
 											title={<ListItem 
 														data={item}
