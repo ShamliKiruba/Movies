@@ -30,7 +30,6 @@ const App = () => {
 	};
 
 	const getDataFromSearch = (title) => {
-		console.log('heyy', title)
 		let newData = [];
 		if(title) {
 			data.map((item, index) => {

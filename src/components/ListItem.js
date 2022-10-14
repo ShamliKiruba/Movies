@@ -15,19 +15,13 @@ const ListItem = ({ data = [], selectedIndex, index, fillData}) => {
             <Box sx={{
                 display: 'flex'
             }}>
-                <Box className="list-item" sx={{
-                    width: '20%',
-                }}>
+                <Box className="list-item item-left">
                     <Typography>EPISODE - {data.episode_id}</Typography>
                 </Box>
-                <Box className="list-item" sx={{
-                    width: '60%',
-                }}>
+                <Box className="list-item item-center">
                     <Typography>Episode - {data.episode_id}  {data.title}</Typography>
                 </Box>
-                <Box className="list-item" sx={{
-                    width: '20%',
-                }}>
+                <Box className="list-item item-right" >
                     <Typography>{new Date(data.created).toLocaleDateString()}</Typography>
                 </Box>
             </Box>

@@ -19,6 +19,9 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `npm run test:coverage`
+This command is to check the testcases coverage
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
@@ -68,3 +71,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+Improvements that can be done:
+1. can have shimmer on data load
+2. can have redux store
+3. can have a window potrait/landscape screen change support without reload
+4. useCallBack for the methods used under render
+5. can create custom hooks on the commenly used components
+5. can have a debounced search in case of API call
+6. can have a globalised theme on Mui components with different variants
+7. can have component level, style and test cases
+8. can have lint check
