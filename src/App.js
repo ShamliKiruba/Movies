@@ -19,10 +19,8 @@ const App = () => {
 	const [dataSelectedIndex, setDataSelectedIndex] = useState();
 
 	useEffect(() => {
-		console.log("Inside use effect ")
 		fetchData('https://swapi.dev/api/films/?format=json')
 		.then((data) => {
-			console.log("Data is ", data)
 			setData(data.results);
 		});
 	}, []);
