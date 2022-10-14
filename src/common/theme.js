@@ -1,5 +1,4 @@
 import { createTheme } from "@mui/material";
-import { experimental_sx as sx } from '@mui/material/styles';
 
 export const theme = createTheme({
     components:{

@@ -3,15 +3,13 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Box from '@mui/material/Box';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
-const AccordionComponent = ({ title='heyy', desc='hello', expand = false }) => {
+const AccordionComponent = ({ title='', desc='' }) => {
     return (
         <>
-          <Accordion expanded={expand}>
+          <Accordion>
             <AccordionSummary
-              // expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
             >

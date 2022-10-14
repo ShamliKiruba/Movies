@@ -1,4 +1,4 @@
-import { Box, Typography, Grid } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import * as React from 'react';
 import { isMobile } from '../common/helper';
 
@@ -10,7 +10,7 @@ const ListItem = ({ data = [], selectedIndex, index, fillData}) => {
             onClick={() => fillData(index)}
             sx={{
                 borderBottom: isMobile() ? '' : '1px solid gray',
-                backgroundColor: selectedIndex ? '#e7e7e7' : ''
+                backgroundColor: (!isMobile() && selectedIndex) ? '#e7e7e7' : ''
             }}>
             <Box sx={{
                 display: 'flex'

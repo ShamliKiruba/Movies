@@ -10,7 +10,6 @@ const Search = ({ data = [], getDataFromSearch }) => {
             value={val}
             placeholder="Type to search"
             onChange={(e) => {
-                console.log('selected title', e.target.outerText); 
                 setVal(e.target.value);
                 getDataFromSearch(e.target.value);
             }}

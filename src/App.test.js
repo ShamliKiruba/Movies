@@ -127,7 +127,6 @@ describe('Movie', () => {
 			fireEvent.change(screen.getByPlaceholderText('Type to search'), { target: { value: 'Return' }});
 			const firstElement = wrapper.getElementsByClassName('list-container')[0];
 			expect(screen.getByText(/Return of the Jedi/)).toBeInTheDocument();
-			expect(firstElement).toHaveClass('selectedIndex');
 		});	
 	});	
 });

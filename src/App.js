@@ -10,18 +10,19 @@ import AccordionComponent from './components/Accordion';
 import './App.scss';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from './common/theme';
-import SAMPLE_DATA from './data.json';
 import { isMobile } from './common/helper';
 import { Typography } from '@mui/material';
 
 const App = () => {
 	const [data, setData] = useState([]);
+	const [allData, setAllData] = useState([]);
 	const [dataSelectedIndex, setDataSelectedIndex] = useState();
 
 	useEffect(() => {
 		fetchData('https://swapi.dev/api/films/?format=json')
 		.then((data) => {
 			setData(data.results);
+			setAllData(data.results);
 		});
 	}, []);
 
@@ -32,16 +33,13 @@ const App = () => {
 	const getDataFromSearch = (title) => {
 		let newData = [];
 		if(title) {
-			data.map((item, index) => {
-				if (item.title.toLowerCase().includes(title.toLowerCase())) {
-					newData.push(item);
-				}
+			newData = allData.filter(item => {
+				return (item.title.toLowerCase().includes(title.toLowerCase()))
 			});
 		} else {
-			newData = JSON.parse(JSON.stringify(SAMPLE_DATA.results));
+			newData = allData;
 		}
 		setData(newData);
-		setDataSelectedIndex(0);
 	};
 
 	const handleSort = (sortBy) => {
